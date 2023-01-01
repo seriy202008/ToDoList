@@ -1,0 +1,190 @@
+@import "_base";
+@import "_src";
+/* ------------------------------------------- */
+body {
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+main {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.container {
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 1840px;
+}
+.header {
+    background-color: $color-1;
+    margin-bottom: 30px;
+    &--container {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    &--title {
+        font-size: 30px;
+        @media (max-width:320px) {
+            font-size: 24px; 
+        }
+        font-weight: bold;
+        text-transform: uppercase;
+        word-spacing: 10px;
+        letter-spacing: 1px;
+        color: white;
+    }
+}
+.todo {
+    flex: 1 1 auto;
+    font-size: 24px;
+
+    &--container {
+    }
+
+    &--list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        position: relative;
+    }
+
+    &--item {
+    }
+}
+.task {
+    width: 100%;
+    min-height: 100px;
+    box-shadow: 0 0 5px #000;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    order: 0;
+    transition: all 1s;
+    &._order {
+        order: 1;
+    }
+    &--content {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    &--body {
+        flex: 1 1 auto;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    &--checkbox {
+        width: 25px;
+        height: 25px;
+        border: 1px solid $color-1;
+        background-color: white;
+        border-radius: 5px;
+        &._active {
+            background-color: $color-1;
+            background-image: url(../img/check.svg);
+            background-size: cover;
+            background-position: center center;
+        }
+    }
+
+    &--title {
+        max-width: 75%; 
+        word-wrap: break-word;
+        &._delete {
+            text-decoration: line-through;
+            color: #aaa;
+        }
+    }
+
+    &--manage {
+        display: flex;
+        align-items: center;
+    }
+
+    &--close {
+        width: 25px;
+        height: 25px;
+        background-image: url(../img/close.svg);
+        background-position: center center;
+        background-size: cover;
+        border: none;
+        background-color: #fff;
+    }
+}
+.taskAdd {
+    font-size: 24px;
+    &--container {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        
+    }
+
+    &--input {
+        height: 60px;
+        width: 80%;
+        border-radius: 10px;
+        padding: 20px;
+        border: 1px solid #aaa;
+        &:focus {
+            border: 1px solid #000;
+        }
+        &._warn {
+            border: 1px solid #ff0000;
+        }
+    }
+
+    &--btn {
+        width: 20%;
+        height: 60px;
+        border-radius: 10px;
+        border: 1px solid $color-1;
+        background-color: $color-1;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: bold;
+        transition: all 250ms;
+        &:hover {
+            background-color: darken($color-1, 10%);
+        }
+        &:active {
+            background-color: darken($color-1, 10%);
+            border: 2px solid #fff;
+        }
+        &:focus {
+            border: 1px solid darken($color-1, 10%);
+        }
+    }
+}
+@media (max-width: 767px) {
+    .header{
+        text-align: center;
+    }
+    .taskAdd{
+        &--container{
+            flex-direction: column;
+            align-items: center;
+        }
+        &--input{
+            width: 100%;
+        }
+        &--btn{
+            width: 100%;
+        }
+    }
+    
+}

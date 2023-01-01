@@ -1,0 +1,47 @@
+block Vars
+    - var lang = null;
+    - var title = null;
+    - var style = null;
+    - var desc = null; 
+    - var kw = null; 
+    - var fav = false;
+doctype html
+//- language
+if (lang)
+    - lang = lang;
+else
+    - lang = `ru`;
+
+html(lang=lang)
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        //- description
+        if (desc) 
+            meta(name="description", content=desc)
+        
+        //- keywords
+        if (kw)
+            meta(name="keywords", content=kw)
+        
+        //- title
+        if (title)
+            title= title
+        else
+            title Document
+        
+        //- css
+        if (style)
+            link(rel="stylesheet", href=`css/${style}.css`)
+        else
+            link(rel="stylesheet", href=`css/style.css`)
+        
+        //- favicon
+        if (fav) 
+            link(rel="shortcut icon", href="img/favicon.ico", type="image/x-icon")
+        
+    body
+        .wrapper
+            block Page 
+        script(src="js/jquery.min.js")
+        script(src="js/script.js")

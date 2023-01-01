@@ -1,0 +1,18 @@
+extends _base
+block Vars
+    - var lang = `ru`;
+    - var title = `ToDoList`;
+    - var style = `style`;
+block Page
+    header.header
+        .container.header--container 
+            h1.header--title Список Дел 
+    main 
+        .todo 
+            .container.todo--container 
+                ul.todo--list 
+        .taskAdd
+            .container.taskAdd--container 
+                input#taskCreator.taskAdd--input(type="text", tabindex="1", maxlength="75")
+                button#taskSender.taskAdd--btn(tabindex="2") Создать 
+
